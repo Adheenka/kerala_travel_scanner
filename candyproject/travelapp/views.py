@@ -1,14 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from . models import place
-
+import requests
 
 # Create your views here.
 def dummy(request):
     obj=place.objects.all()
     return render(request,"index.html",{'result':obj})
 def get_html_content(request):
-    import requests
+
     city = request.GET.get('city')
     city = city.replace(" ", "+")
     USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
